@@ -8,7 +8,8 @@ Would be ideal if it was able to "chat" with PDFs (eval. PDFs of resumes sent by
 
 ---- 
 ### progress
-GripTape has been integrated instead of LangChain (easier to use, better documentation). 
+* GripTape has been integrated instead of LangChain (easier to use, better documentation)
+* Hardcoded recruiting agent works
 
 ### current focus
 allow for variable requests to the Recruiting Agent
