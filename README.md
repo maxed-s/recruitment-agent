@@ -12,4 +12,4 @@ Would be ideal if it was able to "chat" with PDFs (eval. PDFs of resumes sent by
 * Hardcoded recruiting agent works
 
 ### current focus
-allow for variable requests to the Recruiting Agent
+* allow for variable requests to the Recruiting Agent
