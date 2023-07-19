@@ -5,4 +5,10 @@ The agent should be able to parse a job opening as inputted from a hiring manage
 
 Would be ideal if it was able to "chat" with PDFs (eval. PDFs of resumes sent by candidates to understand whether they're qualified). That is, however, a separate goal that can be accomplished later. 
 
-Current focus is integrating GripTape. 
+
+---- 
+progress: 
+GripTape has been integrated instead of LangChain (easier to use, better documentation). 
+
+current focus: 
+allow for variable requests to the Recruiting Agent
