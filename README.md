@@ -10,6 +10,11 @@ Would be ideal if it was able to "chat" with PDFs (eval. PDFs of resumes sent by
 ### progress
 * GripTape has been integrated instead of LangChain (easier to use, better documentation)
 * Hardcoded recruiting agent works
+* Allows for variable requests to the Recruiting Agent
+* Now it's a web application – it uses Flask
 
 ### current focus
-* allow for variable requests to the Recruiting Agent
+* Building out the finance agent (overarching goal)
+* Create route for finance agent
+* Allow for invoice generation (PDF and email)
+* Build chat interface (might require SocketIO)
