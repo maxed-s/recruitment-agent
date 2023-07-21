@@ -5,17 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Recruiting Agent</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="icon" type="image/png" href="https://www.iconexperience.com/_img/m_collection_png/256x256/plain/security_agent.png
+    ">
 </head>
 <body class="container">
     <br/>
     <br/>
     <h1>Finance Agent</h1>
 
-    {{ chat }}
+    <h2>Got any questions? We're pretty great at invoices.</h2>
+  
+
+    <div id="chat-box">
+        {{ chat | safe}}
+    </div>
+    <br/>
+    <form action="/finance" method="post">
+    <input type="text" id="message" name="message" />
+    <input type="submit" value="Send" />
+    </form>
+ 
+
 
    
-    <p></p>
-   
-    
 </body>
 </html>

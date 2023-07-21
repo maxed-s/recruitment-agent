@@ -28,9 +28,34 @@ app = Flask(__name__)
 def index():
    return render_template("index.html")
 
-@app.route("/finance")
-def finance():    
-    return render_template("finance.html", chat="hello")
+@app.route("/finance", methods=["GET", "POST"])
+def finance():
+    if request.method == "POST":
+       agent = Agent(
+       rulesets = [
+          Ruleset(
+       name="Fractional CFO", 
+       rules=[
+          Rule("Behave like an efficient fractional CFO"), 
+          Rule("Act like you work for MaxedS, a startup designed to help other businesses be more efficient"),
+          Rule("Discuss only topics related to what a CFO discusses: business forecasting, depositing money, processing invoices, brainstorming financial strategy")
+       ]
+          )
+       ]
+    )
+       message = request.form.get("message", "")
+       agent.run(message)
+       full_agent_response = str(utils.Conversation(agent.memory))
+    
+       with_space = full_agent_response.replace(message, message+"<br>")
+       with_agent = with_space.replace("A: ", "<b>Agent:</b> ")
+       with_question = with_agent.replace("Q: ", "<b>You:</b> ")
+
+       
+          
+       return render_template("finance.html", chat=with_question) 
+    else:
+       return render_template("finance.html", chat="")
 
 @app.route("/job_posting_input")
 def job_posting_input():
