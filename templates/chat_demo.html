@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html data-theme="dark"  lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recruiting Agent</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="icon" type="image/png" href="https://www.iconexperience.com/_img/m_collection_png/256x256/plain/security_agent.png
+    ">
+
+
+<title>FosterKane Chat Demo</title>
+
+</head>
+<body class="container">
+    <br>
+    <br>
+    <h1>FosterKane Agent Demo</h1>
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <br>
+        <input type="text" id="user-input" placeholder="Type your message...">
+    </div>
+
+    <script>
+        // JavaScript logic
+        document.addEventListener("DOMContentLoaded", function () {
+            const chatMessages = document.getElementById("chat-messages");
+            const userInput = document.getElementById("user-input");
+
+            let userSentMessage = false; // Keep track of whether the user has sent a message
+
+            function typeMessage(message, sender) {
+                const messageElement = document.createElement("div");
+                messageElement.className = "message";
+                chatMessages.appendChild(messageElement);
+
+                const senderElement = document.createElement("span");
+                senderElement.textContent = sender + ": ";
+                messageElement.appendChild(senderElement);
+
+                const textElement = document.createElement("span");
+                messageElement.appendChild(textElement);
+
+                const chars = message.split("");
+                let currentIndex = 0;
+
+                function typeNextCharacter() {
+                    if (currentIndex < chars.length) {
+                        textElement.textContent += chars[currentIndex];
+                        currentIndex++;
+                        setTimeout(typeNextCharacter, 50); // Adjust typing speed here (in milliseconds)
+                    }
+                    else {
+                        // Add a line break after the message is fully typed
+                        chatMessages.appendChild(document.createElement("br"));
+                    }
+                }
+
+                typeNextCharacter();
+            }
+
+            // Event listener for user input
+            userInput.addEventListener("keydown", function (event) {
+                if (event.key === "Enter" && userInput.value.trim() !== "") {
+                    const userMessage = userInput.value.trim();
+                    typeMessage(userMessage, "You");
+                    userInput.value = "";
+                    userSentMessage = true; // Set the flag to true when the user sends a message
+                }
+            });
+
+            // Simulate the chat conversation when the user presses Enter
+            userInput.addEventListener("keyup", function (event) {
+                if (event.key === "Enter" && userSentMessage) {
+                    // Start the chat animation after the user has sent a message
+                    setTimeout(function () {
+                        typeMessage("Hey Amit. Since we've last spoken, I've worked on two items for you.", "FosterKane");
+                    }, 1000);
+
+                    setTimeout(function () {
+                        typeMessage("Give me the status on both of them.", "You");
+                    }, 6000);
+
+                    setTimeout(function () {
+                        typeMessage("First, I processed your payment.", "FosterKane");
+                    }, 10000);
+
+                    setTimeout(function () {
+                        typeMessage("Great.", "You");
+                    }, 14000);
+
+                    setTimeout(function () {
+                        typeMessage("Second, I sent your invoice to the client. Here it is: ", "FosterKane");
+                    }, 16000);
+
+                    setTimeout(function () {
+                        const imageElement = document.createElement("img");
+                        imageElement.src = "https://i.ibb.co/y6zVXq9/Screenshot-2023-07-22-at-3-34-42-AM.png";
+                        chatMessages.appendChild(imageElement);
+                    }, 20000);
+
+                    setTimeout(function() {
+                        typeMessage("Thanks. That's all for now.", "You");
+                    }, 22000);
+
+                    setTimeout(function() {
+                        typeMessage("Thanks for using FosterKane, Amit. See you later.", "FosterKane");
+                    }, 24000);
+
+                    
+
+                    userSentMessage = false; // Reset the flag after the animation starts
+                }
+            });
+        });
+    </script>
+</body>
+</html>

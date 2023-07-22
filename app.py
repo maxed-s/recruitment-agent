@@ -108,10 +108,12 @@ def job_posting_generator():
     return render_template('job_posting.html', job_posting=sliced_string)
 
    
-    
+@app.route("/chat")
+def chat():
+   return render_template("chat_demo.html")
    
-'''
+
 if __name__ == "__main__":
    port = int(os.environ.get("PORT", 3000))
    app.run(host="0.0.0.0", port=port)
-'''
+
